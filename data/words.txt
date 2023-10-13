@@ -1,4 +1,0 @@
-hadoop spark hadoop hive
-hadoop spark python java
-hive mapreduce mapreduce
-flink flink flume
