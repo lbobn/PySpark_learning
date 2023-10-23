@@ -5,10 +5,10 @@ from pyspark import SparkConf, SparkContext
 import os
 os.environ["HADOOP_CONF_DIR"] = "/export/server/hadoop/etc/hadoop"
 if __name__ == '__main__':
-    conf = SparkConf().setMaster("yarn").setAppName("test")
+    conf = SparkConf().setAppName("test").setMaster("yarn")
     sc = SparkContext(conf=conf)
 
-    rdd = sc.textFile("hdfs://node1:8020/input/word.txt")
+    rdd = sc.textFile("hdfs://node1:8020/input/order.txt")
     json_rdd = rdd.flatMap(lambda line: line.split("|"))
     dict_rdd = json_rdd.map(lambda x: json.loads(x))
 
